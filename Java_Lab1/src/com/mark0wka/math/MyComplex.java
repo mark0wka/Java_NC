@@ -61,11 +61,11 @@ public class MyComplex {
         } else return false;
     }
 
-    public boolean equals(MyComplex complex) {
+    /*public boolean equals(MyComplex complex) {
         if (this.real == complex.real && this.imag == complex.imag) {
             return true;
         } else return false;
-    }
+    }*/
 
     public double magnitude() {
         return Math.sqrt(Math.pow(this.real, 2) + Math.pow(this.imag, 2));
@@ -119,5 +119,23 @@ public class MyComplex {
 
     public MyComplex conjugate () {
         return new MyComplex(this.real, -this.imag);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyComplex complex = (MyComplex) o;
+        return Double.compare(complex.real, real) == 0 && Double.compare(complex.imag, imag) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = (int) (31 * result + real);
+        result = (int) (31 * result + imag);
+
+        return result;
     }
 }

@@ -31,6 +31,7 @@ public class Main {
         System.out.println(circle0.calculateArea());
         System.out.println(circle1.calculateArea());
         System.out.println(circle2.calculateArea());
+        System.out.println(circle0.hashCode());
 
 
         //Rectangle
@@ -45,6 +46,7 @@ public class Main {
         System.out.println(rect1.calculatePerimetr());
         System.out.println(rect0);
         System.out.println(rect1);
+        System.out.println(rect0.hashCode());
 
         //Employee
         System.out.println("====Employee Block====");
@@ -58,6 +60,7 @@ public class Main {
         System.out.println(employee.getAnnualSalary());
         System.out.println(employee.raiseSalary(15));
         System.out.println(employee);
+        System.out.println(employee.hashCode());
 
         //Book
         System.out.println("====Book Block====");
@@ -72,6 +75,8 @@ public class Main {
         book.setQty(12);
         System.out.println(book);
         System.out.println(book.getAuthorNames());
+        System.out.println(book.hashCode());
+        System.out.println(author1.hashCode());
 
         //MyPoint
         System.out.println("====MyPoint Block====");
@@ -85,6 +90,7 @@ public class Main {
         System.out.println(point1.distance());
         System.out.println(point1.distance(point2));
         System.out.println(point1.distance(2, 4));
+        System.out.println(point2.hashCode());
 
         //Triangle
         System.out.println("====Triangle Block====");
@@ -104,6 +110,7 @@ public class Main {
         System.out.println(triangle2.toString());
         System.out.println(triangle2.getPerimeter());
         System.out.println(triangle2.getType());
+        System.out.println(triangle.hashCode());
 
         //MyComplex
         System.out.println("====MyComplex Block====");
@@ -138,6 +145,7 @@ public class Main {
         System.out.println(complex2.divide(complex1).toString());
         MyComplex complex4 = complex1.conjugate();
         System.out.println(complex4);
+        System.out.println(complex.hashCode());
 
         //MyPolinomial
         System.out.println("====MyPolinomial Block====");
@@ -153,6 +161,7 @@ public class Main {
         System.out.println(polinomial3.toString());
         System.out.println(polinomial1.toString());
         System.out.println(polinomial1.evaluate(3.0));
+        System.out.println(polinomial.hashCode());
 
         //Boll
         System.out.println("====Boll Block====");
@@ -218,5 +227,8 @@ public class Main {
         boll1.smartMove(container);
         System.out.println(container.collideWith(boll1));
         System.out.println(boll1.toString());
+
+        System.out.println(boll.hashCode());
+        System.out.println(container.hashCode());
     }
 }

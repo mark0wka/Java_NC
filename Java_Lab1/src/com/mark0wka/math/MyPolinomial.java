@@ -74,4 +74,18 @@ public class MyPolinomial {
         }
         return result;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyPolinomial that = (MyPolinomial) o;
+        return Arrays.equals(coeffs, that.coeffs);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        return 31 * result * Arrays.hashCode(coeffs);
+    }
 }

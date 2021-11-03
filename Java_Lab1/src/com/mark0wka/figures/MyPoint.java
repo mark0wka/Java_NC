@@ -1,5 +1,7 @@
 package com.mark0wka.figures;
 
+import java.util.Objects;
+
 public class MyPoint {
 
     private double x = 0;
@@ -53,5 +55,23 @@ public class MyPoint {
 
     public double distance () {
         return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyPoint point = (MyPoint) o;
+        return Double.compare(point.x, x) == 0 && Double.compare(point.y, y) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 13;
+
+        result = (int) (31 * result + x);
+        result = (int) (31 * result + y);
+
+        return result;
     }
 }

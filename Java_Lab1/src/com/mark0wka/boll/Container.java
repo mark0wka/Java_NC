@@ -1,5 +1,7 @@
 package com.mark0wka.boll;
 
+import java.util.Objects;
+
 public class Container {
 
     private int x1 = 0;
@@ -58,4 +60,23 @@ public class Container {
         } else return false;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Container container = (Container) o;
+        return x1 == container.x1 && y1 == container.y1 && x2 == container.x2 && y2 == container.y2;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31 * result + x1;
+        result = 31 * result + x2;
+        result = 31 * result + y1;
+        result = 31 * result + y2;
+
+        return result;
+    }
 }

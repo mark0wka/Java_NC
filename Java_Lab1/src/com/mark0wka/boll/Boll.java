@@ -1,5 +1,7 @@
 package com.mark0wka.boll;
 
+import java.util.Objects;
+
 public class Boll {
 
     private float x = 0;
@@ -80,7 +82,6 @@ public class Boll {
                 ")}";
     }
 
-    //Метод проверяет границы контейнера и просчитывает траекторию мяча с учетом столкновений со стенками
     public void smartMove(Container container) {
         if (container.collideWith(this)) {
             this.x += this.xDelta;
@@ -105,6 +106,26 @@ public class Boll {
             this.x += this.xDelta;
             this.y += this.yDelta;
         }
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Boll boll = (Boll) o;
+        return Float.compare(boll.x, x) == 0 && Float.compare(boll.y, y) == 0 && radius == boll.radius && Float.compare(boll.xDelta, xDelta) == 0 && Float.compare(boll.yDelta, yDelta) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31 * result + radius;
+        result = (int) (31 * result + x);
+        result = (int) (31 * result + y);
+        result = (int) (31 * result + xDelta);
+        result = (int) (31 * result + yDelta);
+
+        return result;
     }
 }

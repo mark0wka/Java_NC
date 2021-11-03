@@ -1,5 +1,7 @@
 package com.mark0wka.figures;
 
+import java.util.Objects;
+
 public class Triangle {
 
     private MyPoint v1 = new MyPoint();
@@ -37,15 +39,34 @@ public class Triangle {
         double length2 = this.v2.distance(v3);
         double length3 = this.v3.distance(v1);
         if (this.isEquivalent(length1, length2) && this.isEquivalent(length1, length3)) {
-            return "Равносторонний";
+            return "Equilateral";
         } else if (this.isEquivalent(length1, length2) || this.isEquivalent(length1, length3) || this.isEquivalent(length2, length3)) {
-            return "Равнобедренный";
-        } else return "Обычный";
+            return "Isosceles";
+        } else return "Regular";
     }
 
     private boolean isEquivalent(double length1, double length2) {
         if (Math.abs(length1 - length2) < 0.0001) {
             return true;
         } else return false;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+        return Objects.equals(v1, triangle.v1) && Objects.equals(v2, triangle.v2) && Objects.equals(v3, triangle.v3);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31 * result + v1.hashCode();
+        result = 31 * result + v2.hashCode();
+        result = 31 * result + v3.hashCode();
+
+        return result;
     }
 }

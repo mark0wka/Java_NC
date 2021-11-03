@@ -1,5 +1,7 @@
 package com.mark0wka.books;
 
+import java.util.Objects;
+
 public class Author {
 
     private String name;
@@ -23,5 +25,24 @@ public class Author {
                 ", email='" + email + '\'' +
                 ", gender=" + gender +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return gender == author.gender && Objects.equals(name, author.name) && Objects.equals(email, author.email);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31 * result + gender;
+        result = 31 * result + name.hashCode();
+        result = 31 * result + email.hashCode();
+
+        return result;
     }
 }
